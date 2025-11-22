@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Surfacing Calculator - GAPOPIN</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Surfacing Calculator</h1>
+    </div>
+  </header>
+
+  <main class="container grid">
+    <!-- Input column (mobile-first single column) -->
+    <section class="card">
+      <h2>Data Pasien</h2>
+      <div class="grid-3">
+        <input id="sphR" placeholder="SPH (R)" type="number" step="0.25">
+        <input id="cylR" placeholder="CYL (R)" type="number" step="0.25">
+        <input id="axisR" placeholder="AXIS (R)" type="number" step="1">
+        <input id="sphL" placeholder="SPH (L)" type="number" step="0.25">
+        <input id="cylL" placeholder="CYL (L)" type="number" step="0.25">
+        <input id="axisL" placeholder="AXIS (L)" type="number" step="1">
+      </div>
+      <div style="margin-top:12px;">
+        <input id="pd" placeholder="PD" type="number" step="0.5">
+      </div>
+
+      <h2 style="margin-top:18px;">Data Frame</h2>
+      <div class="grid-3">
+        <input id="A" placeholder="A (mm)" type="number" step="0.1">
+        <input id="B" placeholder="B (mm)" type="number" step="0.1">
+        <input id="DBL" placeholder="DBL (mm)" type="number" step="0.1">
+      </div>
+
+      <div class="row">
+        <label>Bentuk Frame</label>
+        <select id="shape">
+          <option value="kotak">Kotak</option>
+          <option value="bulat">Bulat</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Jenis Frame</label>
+        <select id="frameType">
+          <option value="full">Full</option>
+          <option value="nylon">Nylor</option>
+          <option value="rimless">Rimless</option>
+        </select>
+      </div>
+
+      <h2 style="margin-top:18px;">Bahan Lensa</h2>
+      <div class="row">
+        <label>Index Lensa</label>
+        <select id="index">
+          <option value="1.49">1.49</option>
+          <option value="1.56">1.56</option>
+          <option value="1.60">1.60</option>
+          <option value="1.67">1.67</option>
+          <option value="1.74">1.74</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Jenis Lensa</label>
+        <div class="segmented">
+          <button class="seg" data-val="minus">Minus</button>
+          <button class="seg" data-val="plus">Plus</button>
+        </div>
+      </div>
+
+      <button id="hitung" class="btn primary">HITUNG</button>
+    </section>
+
+    <!-- Results column -->
+    <aside class="card results" id="resultsCard" aria-hidden="true">
+      <h2>Hasil Perhitungan Surfacing</h2>
+
+      <div class="result-block">
+        <h3>Precal</h3>
+        <div class="table" id="precal"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>Tools (F1 / F2)</h3>
+        <div id="tools"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>Sagita (mm)</h3>
+        <div id="sag"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>Ketebalan & Grinding</h3>
+        <div id="thickness"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>Kartu Kerja Surfacing</h3>
+        <div id="kartu"></div>
+      </div>
+
+      <div class="actions">
+        <button id="back" class="btn">KEMBALI</button>
+        <button id="download" class="btn primary">DOWNLOAD PDF</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <small>Surfacing Calculator — Demo</small>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
